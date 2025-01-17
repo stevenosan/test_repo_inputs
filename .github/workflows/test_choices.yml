@@ -17,7 +17,7 @@ jobs:
     test_pl:
         name: test pl
         runs-on: ubuntu-latest
-        if: github.event.inputs.deploy_pl_node == true
+        if: github.event.inputs.deploy_pl_node == 'true'
         steps:
             - name: echo pl node
               run:
@@ -25,7 +25,7 @@ jobs:
     test_other:
         name: test other
         runs-on: ubuntu-latest
-        if: github.event.inputs.deploy_all_other_nodes == true
+        if: github.event.inputs.deploy_all_other_nodes == 'true'
         steps:
             - name: echo all other nodes
               run:
