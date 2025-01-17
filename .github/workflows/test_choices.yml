@@ -14,13 +14,21 @@ on:
                 default: true
 
 jobs:
-    test_choices:
-        name: test choices
+    test_pl:
+        name: test pl
         runs-on:
             group: rhel-selfhosted-runners
             labels: ['self-hosted', 'Linux', 'prod-rhel']
         steps:
-            - name: echo repo choices stuff
+            - name: echo pl node
               run:
-                echo "hello workd ${{ github.event.inputs.deploy_pl_node }}"
-                echo "hello workd ${{ github.event.inputs.deploy_all_other_nodes }}"
+                echo "hello world ${{ github.event.inputs.deploy_pl_node }}"
+    test_other:
+        name: test other
+        runs-on:
+            group: rhel-selfhosted-runners
+            labels: ['self-hosted', 'Linux', 'prod-rhel']
+        steps:
+            - name: echo all other nodes
+              run:
+                echo "hello world ${{ github.event.inputs.deploy_all_other_nodes }}"
