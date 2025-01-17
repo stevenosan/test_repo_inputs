@@ -5,11 +5,13 @@ on:
             deploy_pl_node:
                 description: deploy pl node
                 required: true
-                default: 'true'
+                type: boolean
+                default: true
             deploy_all_other_nodes:
                 description: deploy all other nodes
+                type: boolean
                 required: true
-                default: 'true'
+                default: true
 
 jobs:
     test_choices:
