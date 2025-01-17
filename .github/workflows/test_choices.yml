@@ -2,12 +2,14 @@ name: Test workflow choices
 on:
     workflow_dispatch:
         inputs:
-            nodes:
-                type: choice
-                description: nodes to deploy
-                options:
-                    - plnodefunctions
-                    - allother
+            deploy_pl_node:
+                description: deploy pl node
+                required: true
+                default: 'true'
+            deploy_all_other_nodes:
+                description: deploy all other nodes
+                required: true
+                default: 'true'
 
 jobs:
     test_choices:
@@ -18,4 +20,5 @@ jobs:
         steps:
             - name: echo repo choices stuff
               run:
-                echo "hello workd ${{ github.event.inputs.nodes }}"
+                echo "hello workd ${{ github.event.inputs.deploy_pl_node }}"
+                echo "hello workd ${{ github.event.inputs.deploy_all_other_nodes }}"
