@@ -1,0 +1,21 @@
+name: Test workflow choices
+on:
+    workflow_dispatch:
+        inputs:
+            nodes:
+                type: choice
+                description: nodes to deploy
+                options:
+                    - plnodefunctions
+                    - allother
+
+jobs:
+    test_choices:
+        name: test choices
+        runs-on:
+            group: rhel-selfhosted-runners
+            labels: ['self-hosted', 'Linux', 'prod-rhel']
+        steps:
+            - name: echo repo choices stuff
+              run:
+                echo "hello workd ${{ github.event.inputs.nodes }}"
